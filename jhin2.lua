@@ -25,7 +25,6 @@ JhinMenu.Drawings:Boolean("Q", "Draw Q Range", true)
 JhinMenu.Drawings:Boolean("W", "Draw W Range", true)
 JhinMenu.Drawings:Boolean("E", "Draw E Range", false)
 JhinMenu.Drawings:Boolean("R", "Draw R Range", true)
-JhinMenu.Drawings:Boolean("DrawDmg", "Draw Damage", true)
 
 if Ignite ~= nil then
 JhinMenu:Menu("Misc", "Misc")
@@ -48,23 +47,6 @@ end
 if JhinMenu.Drawings.R:Value() then 
  DrawCircle(pos,750,1,25,GoS.Green) 
 end
-
-if JhinMenu.Drawings.DrawDmg:Value() then
-local target = GetCurrentTarget()
-	if CanUseSpell(myHero,_Q)== READY then 
-	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
-	end
-	if CanUseSpell(myHero,_W)== READY then
-	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
-	end
-	if CanUseSpell(myHero,_E)== READY then
-	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
-	end
-        if CanUseSpell(myHero,_R)== READY then
-          DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
-        end
-end
-
 end)
 
 ----MISC IGNITE
