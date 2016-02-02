@@ -51,16 +51,16 @@ end
 
 if JhinMenu.Drawings.DrawDmg:Value() then
 local target = GetCurrentTarget()
-	if CanUseSpell(myHero_Q)== READY then 
+	if CanUseSpell(myHero,Q)== READY then 
 	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
 	end
-	if CanUseSpell(myHero_W)== READY then
+	if CanUseSpell(myHero,W)== READY then
 	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
 	end
-	if CanUseSpell(myHero_E)== READY then
+	if CanUseSpell(myHero,E)== READY then
 	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
 	end
-        if CanUseSpell(myHero_R)== READY then
+        if CanUseSpell(myHero,R)== READY then
           DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
         end
 end
@@ -98,7 +98,7 @@ OnTick(function(myHero)
 	
 Target= GetCurrentTarget()
 
-  if CanUseSpell(myHero,_W) and validTarget(target, 3000) and WPred.HitChance ==1 and JhinMenu.Combo.W:Value() then
+  if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and WPred.HitChance ==1 and JhinMenu.Combo.W:Value() then
   	CastSkillShot(_W,WPred.PredPos)
   end
   
