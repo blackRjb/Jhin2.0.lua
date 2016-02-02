@@ -67,10 +67,6 @@ local target = GetCurrentTarget()
 end
 
 end)
---> Pre W /E
-
-
-
 
 ----MISC IGNITE
 
@@ -81,6 +77,8 @@ for i,enemy in pairs(GetEnemyHeroes()) do
           CastTargetSpell(enemy, Ignite)
           end
         end
+end
+
 ----local function 
 local function CastE()
 	local Pred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),750,999999,ERange,100,true,true)
@@ -102,15 +100,17 @@ local function combo
 OnTick(function(myHero)
 Target= GetCurrentTarget()
 
+  if CanUseSpell(myHero,_W) and validTarget(target, 3000) and WPred.HitChance ==1 and JhinMenu.Combo.W:Value() then
+  	CastSkillShot(_W,WPred.PredPos)
+  end
   
+  if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and WPred.HitChance ==1 and JhinMenu.Combo.E:Value() then
+  	CastSkillShot(_E,EPred.PredPos)
+  end
   
-  
-  
-  
-  
-   if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
+  if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
         CastTargetSpell(target,_Q)
-   end
+  end
 
 
  -----HARASS
@@ -118,15 +118,15 @@ local function Harass
 
 local target = GetCurrentTarget
  
-   if IsReady(_Q) and QReady and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
+   if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
      CastTargetSpell(target,_Q)
    end
 
-   if IsReady(_W) and WReady and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() and WPred.HitChance == 1 then  
+   if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() and WPred.HitChance == 1 then  
 	CastSkillShot(_W,WPred.PredPos)
    end
 
-   if IsReady(_E) and EReady and ValidTarget(target, 750) and JhinMenu.Combo.W:Value() and  EPred.HitChance == 1 then
+   if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and JhinMenu.Combo.E:Value() and  EPred.HitChance == 1 then
 	CastSkillShot(_E,EPred.PredPos)
    end
 
