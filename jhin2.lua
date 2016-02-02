@@ -35,11 +35,11 @@ OnDraw(function(myHero)
 local pos = GetOrigin(myHero)
 
 if JhinMenu.Drawings.Q:Value() then 
- 	DrawCircle(pos,590,1,25,GoS.Pink) 
+ 	DrawCircle(pos,550,1,25,GoS.Pink) 
 end
 
 if JhinMenu.Drawings.W:Value() then 
-	DrawCircle(pos,2700,1,25,GoS.Blue) 
+	DrawCircle(pos,3000,1,25,GoS.Blue) 
 end
 
 end)
