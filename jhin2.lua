@@ -100,7 +100,7 @@ Target= GetCurrentTarget()
  end
 
  -----HARASS
- if IOW:Mode() == "Harass"
+ if IOW:Mode() == "Harass" then
    if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
      CastTargetSpell(target,_Q)
    end
