@@ -1,7 +1,6 @@
 if GetObjectName(GetMyHero()) ~= "Jhin" then return end
 
 require('Inspired')
-require('DeftLib')
 
 local JhinMenu = MenuConfig("Jhin", "Jhin")
 
