@@ -95,9 +95,9 @@ local function CastW()
 end
 
  -----COMBO
-local function combo
-	
+ 
 OnTick(function(myHero)
+	
 Target= GetCurrentTarget()
 
   if CanUseSpell(myHero,_W) and validTarget(target, 3000) and WPred.HitChance ==1 and JhinMenu.Combo.W:Value() then
