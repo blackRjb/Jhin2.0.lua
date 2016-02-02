@@ -23,8 +23,6 @@ JhinMenu.Ksecure:Boolean("E", "Use E", false)
 JhinMenu:Menu("Drawings", "Drawings")
 JhinMenu.Drawings:Boolean("Q", "Draw Q Range", true)
 JhinMenu.Drawings:Boolean("W", "Draw W Range", true)
-JhinMenu.Drawings:Boolean("E", "Draw E Range", false)
-JhinMenu.Drawings:Boolean("R", "Draw R Range", true)
 
 if Ignite ~= nil then
 JhinMenu:Menu("Misc", "Misc")
@@ -37,20 +35,13 @@ OnDraw(function(myHero)
 local pos = GetOrigin(myHero)
 
 if JhinMenu.Drawings.Q:Value() then 
- 	DrawCircle(pos,600,1,25,GoS.Pink) 
+ 	DrawCircle(pos,590,1,25,GoS.Pink) 
 end
 
 if JhinMenu.Drawings.W:Value() then 
-	DrawCircle(pos,2750,1,25,GoS.Blue) 
+	DrawCircle(pos,2700,1,25,GoS.Blue) 
 end
 
-if JhinMenu.Drawings.E:Value() then
-	DrawCircle(pos,750,1,25,Gos.White)
-end
-
-if JhinMenu.Drawings.R:Value() then 
- 	DrawCircle(pos,15000,1,25,GoS.Green) 
-end
 end)
 
 ----MISC IGNITE
