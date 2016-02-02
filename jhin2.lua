@@ -95,6 +95,9 @@ local function CastW()
 end
 
  -----COMBO
+local Combo 
+ --Basic combo
+ 
 OnTick(function(myHero)
 	
 Target= GetCurrentTarget()
