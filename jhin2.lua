@@ -95,7 +95,6 @@ local function CastW()
 end
 
  -----COMBO
- 
 OnTick(function(myHero)
 	
 Target= GetCurrentTarget()
@@ -114,9 +113,9 @@ Target= GetCurrentTarget()
 
 
  -----HARASS
-local function Harass
+local Harass
 
-local target = GetCurrentTarget
+target = GetCurrentTarget
  
    if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
      CastTargetSpell(target,_Q)
