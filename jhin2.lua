@@ -52,16 +52,16 @@ end
 
 if JhinMenu.Drawings.DrawDmg:Value() then
 local target = GetCurrentTarget()
-	if CanUseSpell("Q")== READY then 
+	if CanUseSpell(myHero_Q)== READY then 
 	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
 	end
-	if CanUseSpell("W")== READY then
+	if CanUseSpell(myHero_W)== READY then
 	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
 	end
-	if CanUseSpell("E")== READY then
+	if CanUseSpell(myHero_E)== READY then
 	  DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
 	end
-        if CanUseSpell("R")== READY then
+        if CanUseSpell(myHero_R)== READY then
           DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
         end
 end
@@ -95,9 +95,6 @@ local function CastW()
 end
 
  -----COMBO
-local Combo 
- --Basic combo
- 
 OnTick(function(myHero)
 	
 Target= GetCurrentTarget()
