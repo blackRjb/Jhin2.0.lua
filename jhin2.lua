@@ -37,19 +37,19 @@ OnDraw(function(myHero)
 local pos = GetOrigin(myHero)
 
 if JhinMenu.Drawings.Q:Value() then 
- 	DrawCircle(pos,550,1,25,GoS.Pink) 
+ 	DrawCircle(pos,600,1,25,GoS.Pink) 
 end
 
 if JhinMenu.Drawings.W:Value() then 
-	DrawCircle(pos,3000,1,25,GoS.Blue) 
+	DrawCircle(pos,2750,1,25,GoS.Blue) 
 end
 
 if JhinMenu.Drawings.E:Value() then
-	DrawCircle(pos,750,1,25,Gos.white)
+	DrawCircle(pos,750,1,25,Gos.White)
 end
 
 if JhinMenu.Drawings.R:Value() then 
- 	DrawCircle(pos,25000,1,25,GoS.Green) 
+ 	DrawCircle(pos,15000,1,25,GoS.Green) 
 end
 end)
 
@@ -83,7 +83,9 @@ end
 OnTick(function(myHero)
 	
 Target= GetCurrentTarget()
-
+  
+ if IOW:Mode() == "Combo" then
+ 
   if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and WPred.HitChance ==1 and JhinMenu.Combo.W:Value() then
   	CastSkillShot(_W,WPred.PredPos)
   end
@@ -95,13 +97,10 @@ Target= GetCurrentTarget()
   if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
         CastTargetSpell(target,_Q)
   end
-
+ end
 
  -----HARASS
-local Harass
-
-target = GetCurrentTarget
- 
+ if IOW:Mode() == "Harass"
    if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
      CastTargetSpell(target,_Q)
    end
@@ -113,7 +112,7 @@ target = GetCurrentTarget
    if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and JhinMenu.Combo.E:Value() and  EPred.HitChance == 1 then
 	CastSkillShot(_E,EPred.PredPos)
    end
-
+ end
 
 end)
  
