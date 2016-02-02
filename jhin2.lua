@@ -67,6 +67,10 @@ local target = GetCurrentTarget()
 end
 
 end)
+--> Pre W /E
+
+
+
 
 ----MISC IGNITE
 
@@ -77,27 +81,34 @@ for i,enemy in pairs(GetEnemyHeroes()) do
           CastTargetSpell(enemy, Ignite)
           end
         end
-
------>Auto Heal Soon
- -----COMBO
-OnTick(function(myHero)
-Target= GetCurrentTarget()
-local function combo
-  local function CastW()
-	local Pred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),3000,999999,WRange,100,true,true)
-     if WPred.HitChance == 1 then                
-        CastSkillShot(_W,WPred.PredPos)
-    end
-  end
-
+----local function 
 local function CastE()
 	local Pred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),750,999999,ERange,100,true,true)
    if EPred.Hitchance == 1 then
    	CastSkillShot(_E,EPred.PredPos)
    end
-  end
+end
 
-   if IsReady(_Q) and QReady and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
+local function CastW()
+	local Pred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),3000,999999,WRange,100,true,true)
+     if WPred.HitChance == 1 then                
+        CastSkillShot(_W,WPred.PredPos)
+     end
+end
+
+ -----COMBO
+local function combo
+	
+OnTick(function(myHero)
+Target= GetCurrentTarget()
+
+  
+  
+  
+  
+  
+  
+   if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
         CastTargetSpell(target,_Q)
    end
 
