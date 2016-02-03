@@ -80,7 +80,7 @@ OnTick(function(myHero)
 	
 Target= GetCurrentTarget()
  ignite()
- if iow:Mode ==Combo then 
+ if iow:Mode ==combo then 
   if JhinMenu.Combo.Combo1:Value() then
  
    if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() then
@@ -98,7 +98,7 @@ Target= GetCurrentTarget()
  end
 
  -----HARASS
-if iow:Mode ==Harass then
+if iow:Mode ==harass then
  if JhinMenu.Harass.Harass1:Value() then
    
    if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
