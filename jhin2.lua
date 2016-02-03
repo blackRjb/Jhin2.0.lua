@@ -46,25 +46,27 @@ end)
 
 ----MISC IGNITE
 
+function ignite()
 for i,enemy in pairs(GetEnemyHeroes()) do
-   	
+    local Ignite = (GetCastName(GetMyHero(),SUMMONER_1):lower():find("summonerdot") and SUMMONER_1 or (GetCastName(GetMyHero(),SUMMONER_2):lower():find("summonerdot") and SUMMONER_2 or nil))
         if Ignite and JhinMenu.Misc.AutoIgnite:Value() then
           if IsReady(Ignite) and 20*GetLevel(myHero)+50 > GetCurrentHP(enemy)+GetDmgShield(enemy)+GetHPRegen(enemy)*3 and ValidTarget(enemy, 600) then
           CastTargetSpell(enemy, Ignite)
           end
         end
 end
+end
 
 ----local function 
-local function CastE()
-	local Pred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),750,999999,ERange,100,true,true)
+function CastE(unit)
+  local EPred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),750,999999,ERange,100,true,true)
    if EPred.Hitchance == 1 then
-   	CastSkillShot(_E,EPred.PredPos)
+    CastSkillShot(_E,EPred.PredPos)
    end
 end
 
-local function CastW()
-	local Pred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),3000,999999,WRange,100,true,true)
+function CastW(unit)
+  local WPred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),3000,999999,WRange,100,true,true)
      if WPred.HitChance == 1 then                
         CastSkillShot(_W,WPred.PredPos)
      end
@@ -74,15 +76,16 @@ end
 OnTick(function(myHero)
 	
 Target= GetCurrentTarget()
-  
+ ignite()
+ 
  if IOW:Mode() == "Combo" then
  
-  if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and WPred.HitChance ==1 and JhinMenu.Combo.W:Value() then
-  	CastSkillShot(_W,WPred.PredPos)
+  if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() then
+  	CastW(Target)
   end
   
-  if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and WPred.HitChance ==1 and JhinMenu.Combo.E:Value() then
-  	CastSkillShot(_E,EPred.PredPos)
+  if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and JhinMenu.Combo.E:Value() then
+  	CastE(Target)
   end
   
   if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
@@ -96,12 +99,12 @@ Target= GetCurrentTarget()
      CastTargetSpell(target,_Q)
    end
 
-   if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() and WPred.HitChance == 1 then  
-	CastSkillShot(_W,WPred.PredPos)
+   if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() then  
+	CastW(Target)
    end
 
-   if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and JhinMenu.Combo.E:Value() and  EPred.HitChance == 1 then
-	CastSkillShot(_E,EPred.PredPos)
+   if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and JhinMenu.Combo.E:Value() then
+	CastE(Target)
    end
  end
 
