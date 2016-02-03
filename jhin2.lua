@@ -9,11 +9,13 @@ JhinMenu.Combo:Boolean("Q", "Use Q", true)
 JhinMenu.Combo:Boolean("W", "Use W", true)
 JhinMenu.Combo:Boolean("E", "Use E", true)
 JhinMenu.Combo:Slider("Mana", "If Mana % >", 30, 0, 75, 1)
+JhinMenu.Combo:Key("Combo1", "Combo", string.byte(" "))
 
 JhinMenu:Menu("Harass", "Harass")
 JhinMenu.Harass:Boolean("Q", "Use Q", true)
 JhinMenu.Harass:Boolean("W", "Use W", true)
 JhinMenu.Harass:Slider("Mana", "if mana >", 30, 0, 75, 1)
+JhinMenu.Harass:Key("Harass1", "Harass), string.bytre("C"))
 
 JhinMenu:Menu("Ksecure", "Ksecure")
 JhinMenu.Ksecure:Boolean("Q", "Use Q", true)
@@ -30,8 +32,9 @@ JhinMenu.Misc:Boolean("AutoIgnite", "Auto Ignite", true)
 JhinMenu.Misc:Boolean("AutoHeal", "Auto Heal", true)
 end
 
-------Drawing range and damage
+------Drawing range (Soon Dmg)
 OnDraw(function(myHero)
+
 local pos = GetOrigin(myHero)
 
 if JhinMenu.Drawings.Q:Value() then 
@@ -44,7 +47,7 @@ end
 
 end)
 
-----MISC IGNITE
+----LOCAL MISC IGNITE
 
 function ignite()
 for i,enemy in pairs(GetEnemyHeroes()) do
@@ -57,7 +60,7 @@ for i,enemy in pairs(GetEnemyHeroes()) do
 end
 end
 
-----local function 
+----LOCAL SPELL FUNCTION 
 function CastE(unit)
   local EPred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),750,999999,ERange,100,true,true)
    if EPred.Hitchance == 1 then
@@ -78,23 +81,25 @@ OnTick(function(myHero)
 Target= GetCurrentTarget()
  ignite()
  
- if IOW:Mode() == "Combo" then
+  if JhinMenu.Combo.Combo1:Value() then
  
-  if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() then
-  	CastW(Target)
-  end
-  
-  if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and JhinMenu.Combo.E:Value() then
+   if CanUseSpell(myHero,_W) and ValidTarget(target, 3000) and JhinMenu.Combo.W:Value() then
+   	CastW(Target)
+   end
+   
+   if CanUseSpell(myHero,_E) and ValidTarget(target, 750) and JhinMenu.Combo.E:Value() then
   	CastE(Target)
-  end
+   end
   
-  if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
+   if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
         CastTargetSpell(target,_Q)
+   end
   end
- end
+
 
  -----HARASS
- if IOW:Mode() == "Harass" then
+ if JhinMenu.Harass.Harass1:Value() then
+   
    if CanUseSpell(myHero,_Q) and ValidTarget(target, 550) and JhinMenu.Combo.Q:Value() then
      CastTargetSpell(target,_Q)
    end
