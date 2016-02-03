@@ -15,7 +15,7 @@ JhinMenu:Menu("Harass", "Harass")
 JhinMenu.Harass:Boolean("Q", "Use Q", true)
 JhinMenu.Harass:Boolean("W", "Use W", true)
 JhinMenu.Harass:Slider("Mana", "if mana >", 30, 0, 75, 1)
-JhinMenu.Harass:Key("Harass1", "Harass), string.bytre("C"))
+JhinMenu.Harass:Key("Harass1", "Harass", string.byte("C"))
 
 JhinMenu:Menu("Ksecure", "Ksecure")
 JhinMenu.Ksecure:Boolean("Q", "Use Q", true)
