@@ -8,7 +8,6 @@ JhinMenu:Menu("Combo", "Combo")
 JhinMenu.Combo:Boolean("Q", "Use Q", true)
 JhinMenu.Combo:Boolean("W", "Use W", true)
 JhinMenu.Combo:Boolean("E", "Use E", true)
-JhinMenu.Combo:Slider("Mana", "If Mana % >", 30, 0, 75, 1)
 JhinMenu.Combo:Key("Combo1", "Combo", string.byte(" "))
 
 JhinMenu:Menu("Harass", "Harass")
@@ -62,14 +61,14 @@ end
 
 ----LOCAL SPELL FUNCTION 
 function CastE(unit)
-  local EPred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),750,999999,ERange,100,true,true)
+  local EPred = GetPredictionForPlayer(StartVector3D, target, GetMoveSpeed(target), 1400,999999,750,100,true,true)
    if EPred.Hitchance == 1 then
     CastSkillShot(_E,EPred.PredPos)
    end
 end
 
 function CastW(unit)
-  local WPred = GetPredictionForPlayer(GetOrigin(myHero),unit,GetMoveSpeed(unit),3000,999999,WRange,100,true,true)
+  local WPred = GetPredictionForPlayer(startVector3D, target, GetMoveSpeed(target), 1400, 250, 940, 220, true, true)
      if WPred.HitChance == 1 then                
         CastSkillShot(_W,WPred.PredPos)
      end
