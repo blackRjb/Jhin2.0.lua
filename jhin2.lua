@@ -93,19 +93,19 @@ end
 
  
  -----KSECURE
- if KsQ and CanUseSpell(myHero,_Q) == READY and GetHp(target) == < getdmg("Q", target) and ValidTarget(target, 550) then 
+ if KsQ and CanUseSpell(myHero,_Q) == READY and GetHp(target) < getdmg("Q", target) and ValidTarget(target, 550) then 
  	CastTargetSpell(target,_Q)
  end
  
- if KsW and CanUseSpell(myHero,_Q) == READY and GetHP(target) == < getdmg("W", target) and ValidTarget(target, 3000) then
+ if KsW and CanUseSpell(myHero,_Q) == READY and GetHP(target) < getdmg("W", target) and ValidTarget(target, 3000) then
  	CastW(target)
  end
  
- if KsE and CanUseSpell(myHero,_E) == READY and GetHP(target) == < getdmg("E", target) and ValidTarget(target, 750) then 
+ if KsE and CanUseSpell(myHero,_E) == READY and GetHP(target) < getdmg("E", target) and ValidTarget(target, 750) then 
  	CastE(target)
  end
  
 end)
 
-PrintChat(string.format("<font color='#1244EA'>Jhin:</font> <font color='#FFFFFF'> By BlackRjb Loaded, Have A Good Game ! </font>")) 
+PrintChat(string.format("<font color='#1244EA'>Jhin V1.0:</font> <font color='#FFFFFF'> By BlackRjb Loaded, Have A Good Game ! </font>")) 
  
