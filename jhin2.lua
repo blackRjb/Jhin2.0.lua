@@ -1,7 +1,6 @@
 if GetObjectName(GetMyHero()) ~= "Jhin" then return end
 
 require('Inspired')
-require('DamagaLib')
 
 local JhinMenu = MenuConfig("Jhin", "Jhin")
 
@@ -21,13 +20,38 @@ JhinMenu:Menu("Ksecure", "Ksecure")
 JhinMenu.Ksecure:Boolean("KsQ", "Use Q", false)
 JhinMenu.Ksecure:Boolean("KsW", "Use W", false)
 JhinMenu.Ksecure:Boolean("KsE", "Use E", false)
+JhinMenu.Ksecure:Boolean("info", "Ksecure available soon")
 
 JhinMenu:Menu("Drawings", "Drawings")
-JhinMenu.Drawings:Boolean("Q", "Draw Q Range", true)
-JhinMenu.Drawings:Boolean("W", "Draw W Range", true)
+JhinMenu.Drawings:Boolean("Q", "Draw Q Range", false)
+JhinMenu.Drawings:Boolean("W", "Draw W Range", false)
+JhinMenu.Drawings:Boolean("E", "Draw R Range", false)
+
+JhinMenu.Menu("DrawingsD", "DrawingsD")
+JhinMenu.DrawingsD:Boolean("Q", "Draw Q Damage", false)
+JhinMenu.DrawingsD:Boolean("W", "Draw W Damage", false)
+JhinMenu.DrawingsD:Boolean("E", "Draw E Damage", False)
 
 JhinMenu:Menu("Misc", "Misc")
-JhinMenu.Misc:Boolean("AutoHeal", "Auto Heal", false)
+JhinMenu.Misc:Info("info", "Auto Heal-Soon",)
+JhinMenu.Misc:Info("info2", "Auto Ignite Soon")
+
+JhinMenu:Menu("Credits", "Credits")
+JhinMenu.Credits:Info("info", "By BlackRjb")
+
+------Local function 
+
+local Target = GetCurrentTarget()
+local myHeroPos = GetOrigin(myHero)
+local useQ = JhinMenu.Combo.Q:Value()
+local useW = JhinMenu.Combo.W:Value()
+local useE = JhinMenu.Combo.E:Value()
+local HQ = JhinMenu.Harass.HQ:Value()
+local HW = JhinMenu.Harass.HW:Value()
+local HE = JhinMenu.Harass.HE:Value()
+local KsQ = JhinMenu.Ksecure.KsQ:Value()
+local KsW = JhinMenu.Ksecure.KsW:Value()
+local KsE = JhinMenu.Ksecure.KsE:Value()
 
 ------Drawing Range Spell
 
@@ -47,18 +71,6 @@ end)
 
  -----COMBO
 OnTick(function(myHero)
-
-local Target = GetCurrentTarget()
-local myHeroPos = GetOrigin(myHero)
-local useQ = JhinMenu.Combo.Q:Value()
-local useW = JhinMenu.Combo.W:Value()
-local useE = JhinMenu.Combo.E:Value()
-local HQ = JhinMenu.Harass.HQ:Value()
-local HW = JhinMenu.Harass.HW:Value()
-local HE = JhinMenu.Harass.HE:Value()
-local KsQ = JhinMenu.Ksecure.KsQ:Value()
-local KsW = JhinMenu.Ksecure.KsW:Value()
-local KsE = JhinMenu.Ksecure.KsE:Value()
 
 if JhinMenu.Combo.Combo1:Value() then
  
@@ -93,21 +105,10 @@ end
  end
 
  
- -----KSECURE
- if KsQ and CanUseSpell(myHero,_Q) == READY and GetHP(target) < getdmg("Q", target) and ValidTarget(target, 550) then
-	CastTargetSpell(target, _Q)
- end
-
-
- if KsW and CanUseSpell(myHero,_W) == READY and GetHP(target) < getdmg("W", target) and ValidTarget(target, 3000) then
-	CastTargetSpell(target, _W)
- end
-
- if KsE and CanUseSpell(myHero,_E) == READY and GetHP(target) < getdmg("E", target) and ValidTarget(target, 750) then
-	CastTargetSpell(target, _E)
- end
-
-
+-----KSECURE
+-----Auto Heal
+-----Auto Ignite
+-----Drawings Damage
 end)
 
 PrintChat(string.format("<font color='#1244EA'>Jhin V1.0:</font> <font color='#FFFFFF'> By BlackRjb Loaded, Have A Good Game ! </font>")) 
