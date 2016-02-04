@@ -13,6 +13,7 @@ JhinMenu.Combo:Key("Combo1", "Combo", string.byte(" "))
 JhinMenu:Menu("Harass", "Harass")
 JhinMenu.Harass:Boolean("HQ", "Use Q", true)
 JhinMenu.Harass:Boolean("HW", "Use W", true)
+JhinMenu.Harass:Boolean("HE", "Use E", false)
 JhinMenu.Harass:Key("Harass1", "Harass", string.byte("C"))
 
 JhinMenu:Menu("Ksecure", "Ksecure")
