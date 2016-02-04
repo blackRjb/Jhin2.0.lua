@@ -134,7 +134,7 @@ end
  	CastE(target)
  end
  
- 
+end)
 
 PrintChat(string.format("<font color='#1244EA'>Jhin:</font> <font color='#FFFFFF'> By BlackRjb Loaded, Have A Good Game ! </font>")) 
  
