@@ -77,7 +77,7 @@ OnTick(function(myHero)
 
 local Target = GetCurrentTarget()
 local myHeroPos = GetOrigin(myHero)
-local ignite()
+local ignite
 local Q = JhinMenu.Combo.Q:Value()
 local W = JhinMenu.Combo.W:Value()
 local E = JhinMenu.Combo.E:Value()
