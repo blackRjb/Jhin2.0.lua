@@ -107,13 +107,13 @@ end
 	CastE(Target)
   end
  end
-
+end
  
 -----KSECURE
 -----Auto Heal
 -----Auto Ignite
 -----Drawings Damage
-end)
+
 
 PrintChat(string.format("<font color='#1244EA'>Jhin V1.0:</font> <font color='#FFFFFF'> By BlackRjb Loaded, Have A Good Game ! </font>")) 
  
