@@ -1,13 +1,14 @@
 if GetObjectName(GetMyHero()) ~= "Jhin" then return end
 
 require('Inspired')
+require('DamagaLib')
 
 local JhinMenu = MenuConfig("Jhin", "Jhin")
 
 JhinMenu:Menu("Combo", "Combo")
-JhinMenu.Combo:Boolean("Q", "Use Q", true)
-JhinMenu.Combo:Boolean("W", "Use W", true)
-JhinMenu.Combo:Boolean("E", "Use E", true)
+JhinMenu.Combo:Boolean("useQ", "Use Q", true)
+JhinMenu.Combo:Boolean("useW", "Use W", true)
+JhinMenu.Combo:Boolean("useE", "Use E", true)
 JhinMenu.Combo:Key("Combo1", "Combo", string.byte(" "))
 
 JhinMenu:Menu("Harass", "Harass")
@@ -49,9 +50,9 @@ OnTick(function(myHero)
 
 local Target = GetCurrentTarget()
 local myHeroPos = GetOrigin(myHero)
-local Q = JhinMenu.Combo.Q:Value()
-local W = JhinMenu.Combo.W:Value()
-local E = JhinMenu.Combo.E:Value()
+local useQ = JhinMenu.Combo.Q:Value()
+local useW = JhinMenu.Combo.W:Value()
+local useE = JhinMenu.Combo.E:Value()
 local HQ = JhinMenu.Harass.HQ:Value()
 local HW = JhinMenu.Harass.HW:Value()
 local HE = JhinMenu.Harass.HE:Value()
@@ -61,16 +62,16 @@ local KsE = JhinMenu.Ksecure.KsE:Value()
 
 if JhinMenu.Combo.Combo1:Value() then
  
- if Q and CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 550) then
+ if useQ and CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 550) then
         CastTargetSpell(target,_Q)
  end
  
- if E and CanUseSpell(myHero,_E) == READY and ValidTarget(target, 750) then
+ if useE and CanUseSpell(myHero,_E) == READY and ValidTarget(target, 750) then
   
   	CastE(Target)
  end
  
- if W and CanUseSpell(myHero,_W) and ValidTarget(target, 3000) then
+ if useW and CanUseSpell(myHero,_W) and ValidTarget(target, 3000) then
    	CastW(Target)
  end
 end
@@ -93,18 +94,20 @@ end
 
  
  -----KSECURE
- if KsQ and CanUseSpell(myHero,_Q) == READY and GetHp(target) < getdmg("Q", target) and ValidTarget(target, 550) then 
- 	CastTargetSpell(target,_Q)
+ if KsQ and CanUseSpell(myHero,_Q) == READY and GetHP(target) < getdmg("Q", target) and ValidTarget(target, 550) then
+	CastTargetSpell(target, _Q)
  end
- 
- if KsW and CanUseSpell(myHero,_Q) == READY and GetHP(target) < getdmg("W", target) and ValidTarget(target, 3000) then
- 	CastW(target)
+
+
+ if KsW and CanUseSpell(myHero,_W) == READY and GetHP(target) < getdmg("W", target) and ValidTarget(target, 3000) then
+	CastTargetSpell(target, _W)
  end
- 
- if KsE and CanUseSpell(myHero,_E) == READY and GetHP(target) < getdmg("E", target) and ValidTarget(target, 750) then 
- 	CastE(target)
+
+ if ksE and CanUseSpell(myHero,_E) == READY and GetHP(target) < getdmg("E", target) and ValidTarget(target, 750) then
+	CastTargetSpell(target, _E)
  end
- 
+
+
 end)
 
 PrintChat(string.format("<font color='#1244EA'>Jhin V1.0:</font> <font color='#FFFFFF'> By BlackRjb Loaded, Have A Good Game ! </font>")) 
