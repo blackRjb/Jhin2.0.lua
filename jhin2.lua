@@ -103,7 +103,7 @@ end
 	CastTargetSpell(target, _W)
  end
 
- if ksE and CanUseSpell(myHero,_E) == READY and GetHP(target) < getdmg("E", target) and ValidTarget(target, 750) then
+ if KsE and CanUseSpell(myHero,_E) == READY and GetHP(target) < getdmg("E", target) and ValidTarget(target, 750) then
 	CastTargetSpell(target, _E)
  end
 
