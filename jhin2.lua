@@ -54,6 +54,8 @@ local KsQ = JhinMenu.Ksecure.KsQ:Value()
 local KsW = JhinMenu.Ksecure.KsW:Value()
 local KsE = JhinMenu.Ksecure.KsE:Value()
 
+Callback.Add("Tick", function() Loop() end)
+
 ------Drawing Range Spell
 
 OnDraw(function(myHero)
@@ -71,8 +73,7 @@ end
 end)
 
  -----COMBO
-OnTick(function(myHero)
-
+function Loop()
 if JhinMenu.Combo.Combo1:Value() then
  
  if useQ and CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 550) then
