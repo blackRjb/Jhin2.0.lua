@@ -27,7 +27,7 @@ JhinMenu.Drawings:Boolean("Q", "Draw Q Range", false)
 JhinMenu.Drawings:Boolean("W", "Draw W Range", false)
 JhinMenu.Drawings:Boolean("E", "Draw R Range", false)
 
-JhinMenu.Menu("DrawingsD", "DrawingsD")
+JhinMenu:Menu("DrawingsD", "DrawingsD")
 JhinMenu.DrawingsD:Boolean("Q", "Draw Q Damage", false)
 JhinMenu.DrawingsD:Boolean("W", "Draw W Damage", false)
 JhinMenu.DrawingsD:Boolean("E", "Draw E Damage", false)
