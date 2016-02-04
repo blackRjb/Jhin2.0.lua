@@ -76,7 +76,7 @@ local KsQ = JhinMenu.Ksecure.KsQ:Value()
 local KsW = JhinMenu.Ksecure.KsW:Value()
 local KsE = JhinMenu.Ksecure.KsE:Value()
 
-if JhinMenu.Combo.Combo1:Value() then
+if IOW:Mode() == "Combo" then
 
  
  if useQ and CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 550) then
@@ -94,7 +94,7 @@ if JhinMenu.Combo.Combo1:Value() then
 end
 
  -----HARASS
- if JhinMenu.Harass.Harass1:Value() then
+ if IOW:Mode() == "Harass" then
    
   if HQ and CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 550) then
      CastTargetSpell(target,_Q)
