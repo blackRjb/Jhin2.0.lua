@@ -111,11 +111,11 @@ end
  end
  
  if KsW and CanUseSpell(myHero,_Q) == READY and GetHP(target) < getdmg("W", target) and ValidTarget, 3000) then
- 	CastW(target)
+ 	CastW(Target)
  end
  
  if KsE and CanUseSpell(myHero,_E) == READY and GetHP(target) < getdmg("E", target) and ValidTarget, 750) then 
- 	CastE(target)
+ 	CastE(Target)
  end
  
 end)
