@@ -1,7 +1,7 @@
 local myHero = GetMyHero()
 if GetObjectName(GetMyHero()) ~= "Jhin" then return end
 require('Inspired')
-
+require('DamageLib')
 local JhinMenu = MenuConfig("Jhin", "Jhin")
 JhinMenu:Menu("Combo", "Combo")
 JhinMenu.Combo:Boolean("useQ", "Use Q", true)
