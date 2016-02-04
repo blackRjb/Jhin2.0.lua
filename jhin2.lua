@@ -42,18 +42,6 @@ JhinMenu.Credits:Info("info", "By BlackRjb")
 
 ------Local function 
 
-local Target = GetCurrentTarget()
-local myHeroPos = GetOrigin(myHero)
-local useQ = JhinMenu.Combo.useQ:Value()
-local useW = JhinMenu.Combo.useW:Value()
-local useE = JhinMenu.Combo.useE:Value()
-local HQ = JhinMenu.Harass.HQ:Value()
-local HW = JhinMenu.Harass.HW:Value()
-local HE = JhinMenu.Harass.HE:Value()
-local KsQ = JhinMenu.Ksecure.KsQ:Value()
-local KsW = JhinMenu.Ksecure.KsW:Value()
-local KsE = JhinMenu.Ksecure.KsE:Value()
-
 Callback.Add("Tick", function() Loop() end)
 
 ------Drawing Range Spell
@@ -74,7 +62,21 @@ end)
 
  -----COMBO
 function Loop()
+
+local Target = GetCurrentTarget()
+local myHeroPos = GetOrigin(myHero)
+local useQ = JhinMenu.Combo.useQ:Value()
+local useW = JhinMenu.Combo.useW:Value()
+local useE = JhinMenu.Combo.useE:Value()
+local HQ = JhinMenu.Harass.HQ:Value()
+local HW = JhinMenu.Harass.HW:Value()
+local HE = JhinMenu.Harass.HE:Value()
+local KsQ = JhinMenu.Ksecure.KsQ:Value()
+local KsW = JhinMenu.Ksecure.KsW:Value()
+local KsE = JhinMenu.Ksecure.KsE:Value()
+
 if JhinMenu.Combo.Combo1:Value() then
+
  
  if useQ and CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 550) then
         CastTargetSpell(target,_Q)
@@ -105,13 +107,12 @@ end
 	CastE(Target)
   end
  end
-
+end)
  
 -----KSECURE
 -----Auto Heal
 -----Auto Ignite
 -----Drawings Damage
-end)
 
 PrintChat(string.format("<font color='#1244EA'>Jhin V1.0:</font> <font color='#FFFFFF'> By BlackRjb Loaded, Have A Good Game ! </font>")) 
  
