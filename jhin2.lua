@@ -43,10 +43,11 @@ JhinMenu.Credits:Info("info", "By BlackRjb")
 ------Local function 
 
 Callback.Add("Tick", function() Loop() end)
+Callback.Add("Draw", function(myHero) OnDraw(myHero) end)
 
 ------Drawing Range Spell
 
-OnDraw(function(myHero)
+function OnDraw(myHero)
 	
 local pos = GetOrigin(myHero)
 
@@ -58,7 +59,7 @@ if JhinMenu.Drawings.W:Value() then
 	DrawCircle(pos,3000,1,25,GoS.Blue) 
 end
 
-end)
+end
 
  -----COMBO
 function Loop()
@@ -108,7 +109,7 @@ end
   end
  end
 
-end)
+end
  
 -----KSECURE
 -----Auto Heal
