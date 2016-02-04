@@ -33,7 +33,7 @@ JhinMenu.DrawingsD:Boolean("W", "Draw W Damage", false)
 JhinMenu.DrawingsD:Boolean("E", "Draw E Damage", False)
 
 JhinMenu:Menu("Misc", "Misc")
-JhinMenu.Misc:Info("info", "Auto Heal-Soon",)
+JhinMenu.Misc:Info("info", "Auto Heal-Soon")
 JhinMenu.Misc:Info("info2", "Auto Ignite Soon")
 
 JhinMenu:Menu("Credits", "Credits")
