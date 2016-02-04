@@ -107,7 +107,7 @@ end
 	CastE(Target)
   end
  end
-end
+end)
  
 -----KSECURE
 -----Auto Heal
