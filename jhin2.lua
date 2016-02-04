@@ -25,7 +25,6 @@ JhinMenu.Drawings:Boolean("Q", "Draw Q Range", true)
 JhinMenu.Drawings:Boolean("W", "Draw W Range", true)
 
 JhinMenu:Menu("Misc", "Misc")
-JhinMenu.Misc:Boolean("AutoIgnite", "Auto Ignite", true) 
 JhinMenu.Misc:Boolean("AutoHeal", "Auto Heal", false)
 
 ------Drawing Range Spell
@@ -43,20 +42,6 @@ if JhinMenu.Drawings.W:Value() then
 end
 
 end)
-
-----MISC IGNITE
-
-function ignite()
-for i,enemy in pairs(GetEnemyHeroes()) do
-    local Ignite = (GetCastName(GetMyHero(),SUMMONER_1):lower():find("summonerdot") and SUMMONER_1 or (GetCastName(GetMyHero(),SUMMONER_2):lower():find("summonerdot") and SUMMONER_2 or nil))
-        if Ignite and JhinMenu.Misc.AutoIgnite:Value() then
-          if IsReady(Ignite) and 20*GetLevel(myHero)+50 > GetCurrentHP(enemy)+GetDmgShield(enemy)+GetHPRegen(enemy)*3 and ValidTarget(enemy, 600) then
-          CastTargetSpell(enemy, Ignite)
-          end
-        end
-end
-end
-
 
 function CastE(unit)
   local EPred = GetPredictionForPlayer(StartVector3D, target, GetMoveSpeed(target), 1400,999999,750,100,true,true)
@@ -77,7 +62,6 @@ OnTick(function(myHero)
 
 local Target = GetCurrentTarget()
 local myHeroPos = GetOrigin(myHero)
-local ignite
 local Q = JhinMenu.Combo.Q:Value()
 local W = JhinMenu.Combo.W:Value()
 local E = JhinMenu.Combo.E:Value()
